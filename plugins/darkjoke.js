@@ -1,8 +1,21 @@
-let handler = async(m, { conn }) => {
-conn.sendFile(m.chat, global.API('xteam', '/asupan/darkjoke', {}, 'APIKEY'), '', 'Gelap Woy Siapa Yang Matiin Lampu?',m)
+let fetch = require('node-fetch')
+
+let handler = async (m, { conn }) => {
+
+  let res = `https://myhuman.herokuapp.com/api/image/darkjokes`
+
+  conn.sendFile(m.chat, res, 'darkjoke.jpg', `drag joles`, m, false)
+
 }
-handler.help = ['darkjokes']
+
+handler.help = ['darkjoke']
+
 handler.tags = ['image']
-handler.command = /^(dragjoles|darkjokes)$/i
+
+
+
+handler.command = /^(darkjoke)$/i
+
+
 
 module.exports = handler
