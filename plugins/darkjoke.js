@@ -1,21 +1,17 @@
-let fetch = require('node-fetch')
-
+let fetch = require("node-fetch")
 let handler = async (m, { conn }) => {
-
-  let res = `https://myhuman.herokuapp.com/api/image/darkjokes`
-
-  conn.sendFile(m.chat, res, 'darkjoke.jpg', `drag joles`, m, false)
-
+  let res = await fetch(global.API('https://myhuman.herokuapp.com', '/api/image/darkjokes'))
+  if (!res.ok) throw await res.text()
+  let json = await res.json()
+  if (!json.image) throw 'Err!'
+  conn.sendFile(m.chat, json.image, 'darkjoke.png', json.result, m)
 }
 
 handler.help = ['darkjoke']
-
 handler.tags = ['image']
-
-
 
 handler.command = /^(darkjoke)$/i
 
-
+handler.group = false
 
 module.exports = handler
