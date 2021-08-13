@@ -1,17 +1,9 @@
 let fetch = require("node-fetch")
-let handler = async (m, { conn }) => {
-  let res = await fetch(global.API('https://leyscoders-api.herokuapp.com', '/api/memeindo 'APIKEY'))
-  if (!res.ok) throw await res.image()
-  let json = await res.json()
-  if (!json.image) throw 'Err!'
-  conn.sendFile(m.chat, json.image, 'memeindo.png', json.text, m)
+let handler = async(m, { conn }) => {
+conn.sendFile(m.chat, global.API('LeysCoder', '/api/memeindo', {}, 'APIKEY'), '', 'meme:v',m)
 }
-
 handler.help = ['memeindo']
 handler.tags = ['image']
-
 handler.command = /^(memeindo)$/i
-
-handler.group = false
 
 module.exports = handler
