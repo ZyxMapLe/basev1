@@ -1,4 +1,3 @@
-let fetch = require("node-fetch")
 let handler = async(m, { conn }) => {
 conn.sendFile(m.chat, global.API('LeysCoder', '/api/memeindo', {}, 'APIKEY'), '', 'meme:v',m)
 }
