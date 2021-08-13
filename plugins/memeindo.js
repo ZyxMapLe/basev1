@@ -1,6 +1,6 @@
 let fetch = require("node-fetch")
 let handler = async (m, { conn }) => {
-  let res = await fetch(global.API('https://leyscoders-api.herokuapp.com', '/api/memeindo?apikey=dappakntlll'))
+  let res = await fetch(global.API('https://leyscoders-api.herokuapp.com', '/api/memeindo 'APIKEY'))
   if (!res.ok) throw await res.image()
   let json = await res.json()
   if (!json.image) throw 'Err!'
