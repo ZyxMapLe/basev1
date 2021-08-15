@@ -14,4 +14,6 @@ handler.tags = ['info']
 
 handler.command = /^del(ete)?$/i
 
+handler.owner = true
+
 module.exports = handler
